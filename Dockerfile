@@ -1,12 +1,8 @@
-#FROM mirror.ccs.tencentyun.com/oldcai/sky_base:latest
-FROM mirror.ccs.tencentyun.com/library/python:3.8
-#FROM 4brp6gm1.mirror.aliyuncs.com/library/python:3.7
+FROM python:3.8
 RUN mkdir /code/
 WORKDIR /code/
 ADD . /code/
-RUN sed -i 's/deb.debian.org/mirrors.tencentyun.com/g' /etc/apt/sources.list && \
-    sed -i 's/security.debian.org/mirrors.tencentyun.com/g' /etc/apt/sources.list && \
-    apt update && \
+RUN apt update && \
     apt install -y gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 \
     libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 \
     libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 \
