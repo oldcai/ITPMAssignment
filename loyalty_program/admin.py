@@ -14,7 +14,7 @@ class CreditAdmin(admin.ModelAdmin):
 
 @admin.register(Offer)
 class OfferAdmin(QuillAdmin):
-    list_display = ['title', 'price_in_points']
+    list_display = ['title', 'price_in_points', 'enabled']
 
     list_filter = ['enabled']
 

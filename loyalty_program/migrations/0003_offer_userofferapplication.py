@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('price_in_points', models.IntegerField()),
-                ('title', models.CharField(max_length=20)),
+                ('title', models.CharField(max_length=200)),
                 ('description', quilljs.fields.RichTextField()),
                 ('cover_image', models.ImageField(blank=True, null=True, upload_to='')),
                 ('enabled', models.BooleanField(db_index=True, default=True)),

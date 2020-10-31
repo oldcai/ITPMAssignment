@@ -1,4 +1,4 @@
-{% load static %}
+{% load static bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +11,7 @@
     <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <script src="/static/js/main.js"></script>
+    {% bootstrap_messages %}
 </head>
 <body>
 <header>
@@ -49,23 +50,17 @@
                     </ol>
                     <!-- Carousel items -->
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/static/Offers\cruises1.png">
+                        {% for offer in offers %}
+                            {% if forloop.first %}
+                                <div class="carousel-item active">
+                            {% else %}
+                                <div class="carousel-item item">
+                            {% endif %}
+                        <a href="{% url 'offer-detail-view' offer.id %}"><img src="{{ offer.cover_image.url }}"></a>
                         </div>
-                        <div class="carousel-item">
-                            <img src="/static/Offers\cruises2.png">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/static/Offers\cruises3.png">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/static/Offers\cruises4.png">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="/static/Offers\cruises5.png">
+                        {% endfor %}
                         </div>
                     </div>
-                </div>
             </center>
         </div>
         <div class="column" style="border-left: 3px solid grey;">

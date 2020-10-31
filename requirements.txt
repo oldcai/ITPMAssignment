@@ -4,3 +4,4 @@ gevent
 gunicorn
 django-quilljs
 Pillow
+django-bootstrap4

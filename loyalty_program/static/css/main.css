@@ -5,6 +5,19 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('../fonts/ubuntu/Ubuntu-Regular.ttf'); 
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('../fonts/ubuntu/Ubuntu-Bold.ttf'); 
+}
+
+
+
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -135,7 +148,7 @@ iframe {
 }
 
 .container{
-  /*max-width: auto;*/
+  max-width: auto ;
   height: auto;
   align-content: center;
 }
@@ -479,7 +492,7 @@ Home Page
   float: left;
   display: block;
   color: #f2f2f2;
-  /*text-align: centre;*/
+  text-align: centre;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 18px;
@@ -531,6 +544,9 @@ img {
 
 .row{
 	margin-right: 0px;
+	display: flex;
+    flex-wrap: wrap;
+	justify-content : center
 }
 
 /*.carousel img {
@@ -586,8 +602,29 @@ img {
 #nameDiv {
   text-align: right;
   color: white;
+  margin:5px;
+  padding-right: 200px;
 }
 
+.footer {
+        position: relative;
+        height: 40px;
+        width: 100%;
+		margin: 0 px;
+        background-color: #2c3e50;
+		bottom:0px;
+		z-index: 999;
+    }
+
+    p.copyright {
+        position: absolute;
+        width: 100%;
+        color: #fff;
+        line-height: 40px;
+        font-size: 1 em;
+        text-align: center;
+    }
+	
 
 @media only screen and (max-width: 767px) {}
 
@@ -608,7 +645,7 @@ Profile Page
 
 .save100-form-btn {
   font-family: Ubuntu-Bold;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
@@ -668,6 +705,197 @@ Profile Page
   opacity: 1;
 }
 
+@media only screen and (max-width: 767px) {}
+/*----------------------------------------------------------------
+Coupons page
+-----------------------------------------------*/
+
+
+.coupon {
+  border: 5px dotted #bbb;
+  width: 100%;
+  height: 515px;
+  border-radius: 5px;
+  margin: auto;
+  max-width: 400px;
+  display: block;
+  align-items:center;
+  position: relative;
+}
+
+.coupon-image {
+  height: 260px;
+  width: 390px;
+}
+
+.couponcontainerheader{
+  height: 35px;
+  width: 390px;
+  background-color: #f1f1f1;
+}
+
+.couponcontainercontent{
+  height: 115px;
+  width: 390px;
+}
+
+.couponcontainerpromo{
+  height: 95px;
+  width: 390px;
+  background-color: #f1f1f1;
+}
+
+.promo {
+  background: #ccc;
+  padding: 2px;
+}
+
+.expire {
+  color: red;
+}
+
+   /* Set additional styling options for the columns*/
+    .couponcolumn {
+		flex: 0 1 auto;
+		padding: 16px;
+		margin-top: 50px;
+		position: relative;	
+		justify-content: space-between;
+    }
+
+	
+	.couponrow{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 0 px;
+    margin-left: 0 px;
+	justify-content : center;
+}
+
+.couponrow:after {
+    display: flex;
+	width: 100%;
+	
+    }
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-usecode100-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.usecode100-form-btn {
+  font-family: Ubuntu-Bold;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 100px;
+  height: 42px;
+  border-radius: 21px;
+
+  background: #d41872;
+  background: -webkit-linear-gradient(to right, #2c3e50, #2980b9);
+  background: -o-linear-gradient(to right, #2c3e50, #2980b9);
+  background: -moz-linear-gradient(to right, #2c3e50, #2980b9);
+  background: linear-gradient(to right, #2c3e50, #2980b9);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-position: right center;
+  position: relative;
+  z-index: 1;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.usecode100-form-btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 21px;
+  background-color: #b5b3b3;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.usecode100-form-btn:hover {
+  background-color: transparent;
+}
+
+.usecode100-form-btn:hover:before {
+  opacity: 1;
+}
+@media only screen and (max-width: 767px) {}
+
+
+/* ------------------------------------------------------------------------- 
+Coupon details page
+------------------------------------------------------------------------- */
+	.coupondetailrow{
+		display: flex;
+    flex-wrap: wrap;
+    margin: 2%;
+	justify-content : center;
+	text-align: left;
+	border-style: groove;
+	background-color: #F0F8FF
+	}
+.coupondetailcolumn {
+		flex: 1 1 auto;
+		padding: 10px;
+		margin-top: 10px;
+		position: relative;	
+		justify-content: space-between;
+    }
+
+.coupondetailrow > .coupondetailcolumn > img {  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content:center
+}
+
+ul {
+    text-align: left;
+    list-style-position: inside;
+}	
+li {
+    font-size: 14px;
+    margin-left: 10px;
+    list-style-type: circle;
+    display: list-item;
+ }
+
+
+@media only screen and (max-width: 767px) {}
+
+
 /*----------------------------------------------------------------
 About page
 -----------------------------------------------*/
@@ -707,7 +935,7 @@ About page
 }
 
 
-/*-----[ Button ]*!*/
+/*-----[ Button ]*/
 .container-sub100-form-btn {
   width: 100%;
   display: -webkit-box;
@@ -782,4 +1010,4 @@ About page
 }
 
 
-/*@media (min-width: 576px)*/
+@media only screen and (max-width: 767px) {}

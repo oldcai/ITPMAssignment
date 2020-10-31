@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FlyDreamAir - Coupons</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/static/images/icons/icon.png"/>
+    <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+
+<header>
+    <div class="topnav" id="myTopnav">
+        <a class="navbar-brand" href="#">
+            <img alt="Brand" src="/static/images\logo.png" height="30" style="display:block;">
+        </a>
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <div class="topnav-right">
+            <a href="#">About</a>
+            {% if user.is_authenticated %}
+
+                <a href="/accounts/logout/" align="right">Logout</a>
+            {% else %}
+                <a href="/accounts/login/" align="right">Login</a>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+            <div id="nameDiv">
+                Hello {{ user.username }}! <br> <b><i>Credit Points: {{ user.credit.points }}</i></b>
+            </div>
+        {% endif %}
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</header>
+
+<center>
+    <div class="coupondetailrow">
+        <div class="coupondetailcolumn" style="border-right: 2px solid grey">
+            <img class="couponbanner" src="{{ object.cover_image.url }}" align="center">
+        </div>
+        <div class="coupondetailcolumn" align="center-left">
+            <h3><b>{{ object.title }}</b></h3>
+            {{ object.description|safe }}
+            <p>Points: {{ object.price_in_points }}</p>
+            <p class="expire">Expires: Jan 31, 2021</p>
+            <br>
+            <div class="couponcontainer-usecode100-form-btn m-t-32">
+                <form action="{% url 'apply-offer-view' %}" method="post" class="form">
+                    {% csrf_token %}
+                    <input type="hidden" name="offer_id" value="{{ object.id }}">
+
+                    <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                </form>
+            </div>
+        </div>
+
+        <hr width="95%" noshade>
+        <div class="coupondetailcolumn">
+            <p><h5>Get 10% Cashback Upto ₹1,000 on Domestic Flight Bookings. Offer Valid Only On Standard Chartered
+            Credit And Debit Cards</h5></p><br>
+            <h6> Terms & Conditions:
+                <h6>
+                    <br>
+                    <ul>
+                        <li>User gets 10% Cashback up to ₹1,000 on flight ticket booking.</li>
+                        <li>Offer is valid only for Standard Chartered Credit and Debit cards.</li>
+                        <li>Offer is valid only on Domestic flight bookings.</li>
+                        <li>No Minimum order value for flight ticket booking.</li>
+                        <li>Offer is valid only for one-time usage per user.</li>
+                        <li>Offer is valid only on the first eligible transaction per card per Tuesday during the Offer
+                            Period.
+                        </li>
+                        <li>Convenience fee, Insurance, Zero Cancellation Protection & any ancillaries purchased will be
+                            excluded from the total booking amount for calculation of Cashback.
+                        </li>
+                        <li>Offer is not valid on Standard Chartered Corporate Credit and Debit cards.</li>
+                        <li>To get Cashback, the user should have a verified mobile number on Paytm.</li>
+                        <li>Cancelled orders will not be eligible for Cashback.</li>
+                        <li>Paytm reserves its absolute right to withdraw and/or alter any terms and conditions of the
+                            offer at
+                            any time without prior notice.
+                        </li>
+                    </ul>
+                    <br>
+                    <i>
+                        <p><h6>Book your flight tickets NOW!</h6></p>
+                        <p>Conditions Apply*</p>
+                    </i>
+        </div>
+    </div>
+    </div>
+</center>
+<footer>
+    <div class="footer">
+        <p class="copyright">Copyright © 2020 FlyDreamAir Loyalty Program. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

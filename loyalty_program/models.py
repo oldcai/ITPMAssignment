@@ -16,7 +16,7 @@ class UserContactInfo(models.Model):
 
 class Offer(models.Model):
     price_in_points = models.IntegerField()
-    title = models.CharField(max_length=20)
+    title = models.CharField(max_length=200)
     description = RichTextField()
     cover_image = models.ImageField(null=True, blank=True)
 

@@ -1,92 +1,99 @@
+{% load static bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>FlyDreamAir - Profile</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="/static/images/icons/icon.png"/>
-	<script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
-	<script src="/static/js/main.js"></script>
-
+    <title>FlyDreamAir - Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/static/images/icons/icon.png"/>
+    <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <script src="/static/js/main.js"></script>
+    {% bootstrap_messages %}
 </head>
 <body>
-	<header>
-	<div class="topnav" id="myTopnav">
-		<a class="navbar-brand" href="/">
-        <img alt="Brand" src="/static/images\logo.png" height="30"style="display:block;object-fit: contain">
-		</a>
-		<a href="/">Home</a>
-		<a href="/profile/" class="active">Profile</a>
-			<div class="topnav-right">
-				<a href="#">About</a>
-				<a href="/accounts/logout" align = "right">Logout</a>
-			</div>
-		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-		<i class="fa fa-bars"></i>
-		</a>
-	</div>
-	</header>
-	<center>
-		<br>
-		<div align="Centre" style="border-left: solid 50px #FFFFFF">
-			<h3> User Information</h3><br>
-			</div>
-			<div align="left" style="border-left: solid 50px #FFFFFF">
-			<lable>User Name: {{ user.username }}</lable> <br>
-			<lable>E-mail: {{ user.email }}</lable><br>
-			<lable>Phone Number: {{ user.contact_info.phone_number }}</lable><br>
-			<lable>Member Number: {{ member_number }}</lable><br>
-			<lable>Points: {{ points }}</lable><br>
-			<lable>Member status: OK</lable><br>
-			<lable>Date Joined: {{ user.date_joined }}</lable><br>
-		</div>
-		<hr width="95%" noshade>
-		<div class="row">
+<header>
+    <div class="topnav" id="myTopnav">
+        <a class="navbar-brand" href="/">
+            <img alt="Brand" src="/static/images\logo.png" height="30" style="display:block;object-fit: contain">
+        </a>
+        <a href="/">Home</a>
+        <a href="/profile/" class="active">Profile</a>
+        <div class="topnav-right">
+            <a href="#">About</a>
+            <a href="/accounts/logout" align="right">Logout</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</header>
+<center>
+    <br>
+    <div align="Centre" style="border-left: solid 50px #FFFFFF">
+        <h3> User Information</h3><br>
+    </div>
+    <div align="left" style="border-left: solid 50px #FFFFFF">
+        <lable>User Name: {{ user.username }}</lable>
+        <br>
+        <lable>E-mail: {{ user.email }}</lable>
+        <br>
+        <lable>Phone Number: {{ user.contact_info.phone_number }}</lable>
+        <br>
+        <lable>Member Number: {{ member_number }}</lable>
+        <br>
+        <lable>Points: {{ points }}</lable>
+        <br>
+        <lable>Member status: OK</lable>
+        <br>
+        <lable>Date Joined: {{ user.date_joined }}</lable>
+        <br>
+    </div>
+    <hr width="95%" noshade>
+    <div class="row">
         <div class="column" style="border-right: 3x solid grey;">
             <h4>Update Contact details</h4><br><br>
-			<center>
-			<div align="right" style="float: center; padding-right: 30%">
-				<form style="padding-right: 5% ">
-					<lable>E-mail: </lable>
-						<input type="email" style="border: thin solid"><br><br>
-				</form>
-				<form style="padding-right: 5%">
-					<lable>Phone Number: </lable>
-						<input type="number" style="border: thin solid"><br><br>
-				</form>
-				</div>
-				<div class="container-save100-form-btn m-t-32">
-						<button class="save100-form-btn" type="submit" name="save">Save</button>
-				</div>
-			</center>
-		</div>
+            <center>
+                <form style="padding-right: 5%" action="{% url 'profile' %}" method="post">
+                    {% csrf_token %}
+                    <div align="right" style="float: center; padding-right: 30%">
+                        <lable>E-mail:</lable>
+                        <input type="email" name="email" style="border: thin solid"><br><br>
+                        <lable>Phone Number:</lable>
+                        <input type="number" name="phone_number" style="border: thin solid"><br><br>
+                    </div>
+                    <div class="container-save100-form-btn m-t-32">
+                        <button class="save100-form-btn" type="submit" name="save">Save</button>
+                    </div>
+                </form>
+            </center>
+        </div>
         <div class="column" style="border-left: 3px solid grey;">
             <h4>Change Password</h4><br><br>
             <center>
-			<div align="right" style="float: center; padding-right: 30%">
-				<form style="margin-right: 10% ">
-					<lable>Password: </lable>
-						<input type="text" style="border: thin solid"><br><br>
-				</form>
-				<form style="margin-right: 10% ">
-					<lable>Confirm password: </lable>
-						<input type="text" style="border: thin solid"><br><br>
-				</form>
-				</div>
+                <div align="right" style="float: center; padding-right: 30%">
+                    <form style="margin-right: 10% ">
+                        <lable>Password:</lable>
+                        <input type="text" style="border: thin solid"><br><br>
+                    </form>
+                    <form style="margin-right: 10% ">
+                        <lable>Confirm password:</lable>
+                        <input type="text" style="border: thin solid"><br><br>
+                    </form>
+                </div>
 
-				<div class="container-save100-form-btn m-t-32">
-				<button class="save100-form-btn" type="submit" name="save">Save</button>
-				</div>
-			</center>
+                <div class="container-save100-form-btn m-t-32">
+                    <button class="save100-form-btn" type="submit" name="save">Save</button>
+                </div>
+            </center>
         </div>
     </div>
 
-	</center>
+</center>
 
 </body>
 </html>

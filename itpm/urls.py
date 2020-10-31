@@ -13,18 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
-from django.views.generic import TemplateView
 
-from loyalty_program.views import ProfileView
+from loyalty_program.views import ApplyOfferView, HomepageView, OfferDetailView, ProfileView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('', HomepageView.as_view(), name='home'),
     path('profile/', login_required(ProfileView.as_view()), name='profile'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path(f'offer/<pk>', login_required(OfferDetailView.as_view()), name='offer-detail-view'),
+    path(f'apply-offer/', login_required(ApplyOfferView.as_view()), name='apply-offer-view'),
 ]
 urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
