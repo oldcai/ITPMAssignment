@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'quilljs',
 
     'loyalty_program',
 ]
@@ -128,3 +129,9 @@ STATICFILES_FINDERS = [
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+if Path('/mnt/').exists():
+    STATIC_ROOT = '/mnt/static/'
+    MEDIA_ROOT = '/mnt/media/'
+else:
+    STATIC_ROOT = '/tmp/static/'
+    MEDIA_ROOT = '/tmp/media/'
