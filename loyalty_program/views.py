@@ -13,10 +13,7 @@ class HomepageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomepageView, self).get_context_data(**kwargs)
-        user = self.request.user
         context.update({
-            'member_number': f'{user.id:08d}',
-            'points': user.credit.points,
             'offers': Offer.objects.all()[:5],
         })
         return context
