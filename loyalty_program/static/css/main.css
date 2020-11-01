@@ -878,7 +878,9 @@ Coupon details page
   display: block;
   margin-left: auto;
   margin-right: auto;
-  justify-content:center
+  justify-content:center;
+  max-height: 260px;
+  max-width: 390px;
 }
 
 ul {
