@@ -49,7 +49,9 @@
         <br>
         <lable>Points: {{ points }}</lable>
         <br>
-        <lable>Member status: OK</lable>
+        <lable>Member status: Active</lable>
+        <br>
+        <lable>Member level: {% if user.groups.first %}{{ user.groups.first }}{% else %}New User{% endif %}</lable>
         <br>
         <lable>Date Joined: {{ user.date_joined }}</lable>
         <br>
