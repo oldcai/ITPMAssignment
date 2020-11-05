@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FlyDreamAir - Coupons</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/static/images/icons/icon.png"/>
+    <script src="/static/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+<header>
+    <div class="topnav" id="myTopnav">
+        <a class="navbar-brand" href="#">
+            <img alt="Brand" src="/static/images\logo.png" height="30" style="display:block;">
+        </a>
+        <a href="/">Home</a>
+        <a href="/profile/">Profile</a>
+        <a href="/coupons/" class="active">Coupons</a>
+        <div class="topnav-right">
+            <a href="/about/">About</a>
+            <a href="/accounts/logout/" align="right">Logout</a>
+        </div>
+        {% if user.is_authenticated %}
+            <div id="nameDiv">
+                Hello {{ user.username }}! <br> <b><i>Credit Points: {{ user.credit.points }}</i></b>
+            </div>
+        {% endif %}
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</header>
+
+<center>
+    <div class="couponrow">
+        <div class="couponcolumn">
+
+            <div class="coupon">
+                <div class="couponcontainerheader">
+                    <h3>Every Tuesday</h3>
+                </div>
+                <img class="coupon-image" src="/static/Coupons\PAYTMSCD.jpg" alt="Avatar" style="width:100%;">
+                <div class="couponcontainercontent" style="background-color:white">
+                    <h3><b>Exclusive Offer for Standard Chartered Bank Users</b></h3>
+                    <p>Get 10% Cashback Up To ₹1,000 On Domestic Flights with Standard Chartered Credit And Debit
+                        Cards. </p>
+                </div>
+                <div class="couponcontainerpromo">
+                    <p>Use Promo Code: <span class="promo">PAYTMSCD</span></p>
+                    <p class="expire">Expires: Jan 31, 2021</p>
+                    <div class="couponcontainer-usecode100-form-btn m-t-32">
+                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="couponcolumn">
+
+            <div class="coupon">
+                <div class="couponcontainerheader">
+                    <h3>Daily Offer</h3>
+                </div>
+                <img class="coupon-image" src="/static/Coupons\FLIGHTAXIS.jpg" alt="Avatar" style="width: 100%;">
+                <div class="couponcontainercontent" style="background-color:white">
+                    <h3><b>Exclusive Offer for Axis Bank Users</b></h3>
+                    <p>Get 10x Bonus Reward Points wit EDGE REWARD eligible AXIS BANK Credit and Debit Cards. </p>
+                </div>
+                <div class="couponcontainerpromo">
+                    <p>Use Promo Code: <span class="promo">FLIGHTAXIS</span></p>
+                    <p class="expire">Expires: Dec 31, 2020</p>
+                    <div class="couponcontainer-usecode100-form-btn m-t-32">
+                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="couponcolumn">
+
+            <div class="coupon">
+                <div class="couponcontainerheader">
+                    <h3>Every Tuesday</h3>
+                </div>
+                <img class="coupon-image" src="/static/Coupons\PAYTMSCI.jpg" alt="Avatar" style="width:100%;">
+                <div class="couponcontainercontent" style="background-color:white">
+                    <h3><b>Exclusive Offer for Standard Chartered Bank Users</b></h3>
+                    <p>Get 10% Cashback Up To ₹2,500 On International Flights with Standard Chartered Credit And Debit
+                        Cards. </p>
+                </div>
+                <div class="couponcontainerpromo">
+                    <p>Use Promo Code: <span class="promo">PAYTMSCI</span></p>
+                    <p class="expire">Expires: Jan 31, 2021</p>
+                    <div class="couponcontainer-usecode100-form-btn m-t-32">
+                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="couponcolumn">
+
+            <div class="coupon">
+                <div class="couponcontainerheader">
+                    <h3>Student Offer</h3>
+                </div>
+                <img class="coupon-image" src="/static/Coupons\students-lp.jpg" alt="Avatar" style="width:100%;">
+                <div class="couponcontainercontent" style="background-color:white">
+                    <h3><b>Get Discount up to Rs. 3000</b></h3>
+                    <p>Great Flight Offer for Students. Users under this offer will get 5% discount (maximum up to Rs.
+                        3000) on booking domestic or international flight with us. </p>
+                </div>
+                <div class="couponcontainerpromo">
+                    <p>Use Promo Code: <span class="promo">EMTSTUDENT</span></p>
+                    <p class="expire">Expires: Dec 31, 2020</p>
+                    <div class="couponcontainer-usecode100-form-btn m-t-32">
+                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="couponcolumn">
+
+            <div class="coupon">
+                <div class="couponcontainerheader">
+                    <h3>Senior Citizens Offer</h3>
+                </div>
+                <img class="coupon-image" src="/static/Coupons\senior-citizens-lp.jpg" alt="Avatar" style="width:100%;">
+                <div class="couponcontainercontent" style="background-color:white">
+                    <h3><b>Discounts for Senior Citizens</b></h3>
+                    <p>Special Discounts for Senior Citizens. Users under this offer will get 5% discount (max up to Rs.
+                        3500) on booking domestic or international flight with us. </p>
+                </div>
+                <div class="couponcontainerpromo">
+                    <p>Use Promo Code: <span class="promo">EMTSENIOR</span></p>
+                    <p class="expire">Expires: Nov 30, 2020</p>
+                    <div class="couponcontainer-usecode100-form-btn m-t-32">
+                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</center>
+
+<footer>
+    <div class="footer">
+        <p class="copyright">Copyright © 2020 FlyDreamAir Loyalty Program. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

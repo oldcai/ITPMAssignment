@@ -31,6 +31,7 @@ urlpatterns = [
     path(f'offer/<pk>', login_required(OfferDetailView.as_view()), name='offer-detail-view'),
     path(f'apply-offer/', login_required(ApplyOfferView.as_view()), name='apply-offer-view'),
     path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
+    path('coupons/', TemplateView.as_view(template_name='coupons.html'), name='coupons'),
 ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
