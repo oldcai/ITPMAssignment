@@ -10,6 +10,23 @@
     <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
     <script src="/static/js/main.js"></script>
+    <script>
+        function copy_coupon(text) {
+            var copy = function (e) {
+                e.preventDefault();
+                // console.log('copy');
+                if (e.clipboardData) {
+                    e.clipboardData.setData('text/plain', text);
+                } else if (window.clipboardData) {
+                    window.clipboardData.setData('Text', text);
+                }
+            }
+            window.addEventListener('copy', copy);
+            document.execCommand('copy');
+            window.removeEventListener('copy', copy);
+            alert('Successfully copied the coupon ' + text + ' to clipboard!');
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -53,7 +70,9 @@
                     <p>Use Promo Code: <span class="promo">PAYTMSCD</span></p>
                     <p class="expire">Expires: Jan 31, 2021</p>
                     <div class="couponcontainer-usecode100-form-btn m-t-32">
-                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                        <button class="usecode100-form-btn" type="submit" name="Use Code"
+                                onclick="copy_coupon('PAYTMSCD')">Use Code
+                        </button>
                     </div>
                 </div>
             </div>
@@ -73,7 +92,9 @@
                     <p>Use Promo Code: <span class="promo">FLIGHTAXIS</span></p>
                     <p class="expire">Expires: Dec 31, 2020</p>
                     <div class="couponcontainer-usecode100-form-btn m-t-32">
-                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                        <button class="usecode100-form-btn" type="submit" name="Use Code"
+                                onclick="copy_coupon('FLIGHTAXIS')">Use Code
+                        </button>
                     </div>
                 </div>
             </div>
@@ -95,7 +116,9 @@
                     <p>Use Promo Code: <span class="promo">PAYTMSCI</span></p>
                     <p class="expire">Expires: Jan 31, 2021</p>
                     <div class="couponcontainer-usecode100-form-btn m-t-32">
-                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                        <button class="usecode100-form-btn" type="submit" name="Use Code"
+                                onclick="copy_coupon('PAYTMSCI')">Use Code
+                        </button>
                     </div>
                 </div>
             </div>
@@ -117,7 +140,9 @@
                     <p>Use Promo Code: <span class="promo">EMTSTUDENT</span></p>
                     <p class="expire">Expires: Dec 31, 2020</p>
                     <div class="couponcontainer-usecode100-form-btn m-t-32">
-                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                        <button class="usecode100-form-btn" type="submit" name="Use Code"
+                                onclick="copy_coupon('EMTSTUDENT')">Use Code
+                        </button>
                     </div>
                 </div>
             </div>
@@ -140,7 +165,9 @@
                     <p>Use Promo Code: <span class="promo">EMTSENIOR</span></p>
                     <p class="expire">Expires: Nov 30, 2020</p>
                     <div class="couponcontainer-usecode100-form-btn m-t-32">
-                        <button class="usecode100-form-btn" type="submit" name="Use Code">Use Code</button>
+                        <button class="usecode100-form-btn" type="submit" name="Use Code"
+                                onclick="copy_coupon('EMTSENIOR')">Use Code
+                        </button>
                     </div>
                 </div>
             </div>
