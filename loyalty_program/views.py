@@ -51,7 +51,9 @@ class ProfileView(FormView):
 
 class OfferDetailView(DetailView):
     template_name = 'offer_detail.html'
-    model = Offer
+
+    def get_queryset(self):
+        return Offer.objects.filter(enabled=True)
 
     def get_context_data(self, **kwargs):
         context = super(OfferDetailView, self).get_context_data(**kwargs)
